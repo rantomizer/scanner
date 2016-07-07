@@ -1,0 +1,22 @@
+{
+  "name": "scanner",
+  "version": "0.0.1",
+  "description": "Advise on what's adblocking you.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "bin": {
+    "scan": "./bin/scan"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^2.5.3"
+  },
+  "dependencies": {
+    "electron-prebuilt": "^1.2.6",
+    "temp": "^0.8.3",
+    "yargs": "^4.7.1"
+  }
+}
