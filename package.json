@@ -4,7 +4,8 @@
   "description": "Advise on what's adblocking you.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "electron-mocha",
+    "testmon": "nodemon --exec '(electron-mocha && growlnotify -n nodemon --image ~/green.png -m good) || (growlnotify -n nodemon --image ~/red.png -m crash && exit 1)'"
   },
   "bin": {
     "scan": "./bin/scan"
@@ -12,7 +13,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^2.5.3"
+    "chai": "^3.5.0",
+    "electron-mocha": "^2.3.0",
+    "express": "^4.14.0",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2"
   },
   "dependencies": {
     "electron-prebuilt": "^1.2.6",
