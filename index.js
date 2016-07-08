@@ -8,11 +8,11 @@ class Scanner {
   run (url, cb) {
     this.url = url
     this.cb = cb
-    process.on('uncaughtException', function (err) {
+    process.on('uncaughtException', /* istanbul ignore next */ function (err) {
       console.error(err)
       app.exit(1)
     })
-    app.once('ready', () => this.onReady())
+    app.once('ready', /* istanbul ignore next */ () => this.onReady())
   }
 
   onReady () {
@@ -32,6 +32,7 @@ class Scanner {
 
   scanPage (error) {
     // Do the scan here, HTML source is in this.filename
+    // istanbul ignore else
     if (this.cb) {
       this.cb(error) // Assume caller will quit the app.
     } else {
@@ -45,6 +46,7 @@ class Scanner {
   }
 }
 
+// istanbul ignore if
 if (!module.parent || module.parent.id === '.') {
   const argv = yargs
         .usage('Usage: $0 URL')
