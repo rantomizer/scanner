@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "electron-mocha",
-    "testmon": "nodemon --exec '(electron-mocha && growlnotify -n nodemon --image ~/green.png -m good) || (growlnotify -n nodemon --image ~/red.png -m crash && exit 1)'"
+    "testmon": "nodemon --exec '(electron-mocha && growlnotify -n nodemon --image ~/green.png -m good) || (growlnotify -n nodemon --image ~/red.png -m crash && exit 1)'",
+    "coverage": "electron-mocha --require test/coverage && istanbul report lcov"
   },
   "bin": {
     "scan": "./bin/scan"
@@ -14,8 +15,10 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
     "electron-mocha": "^2.3.0",
     "express": "^4.14.0",
+    "istanbul": "^0.4.4",
     "mocha": "^2.5.3",
     "nodemon": "^1.9.2"
   },
